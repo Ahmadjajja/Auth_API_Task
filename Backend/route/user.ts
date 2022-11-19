@@ -30,7 +30,7 @@ router.post('/login', async (req: Request, res: Response) => {
 
     } else {
 
-        return res.status(400).send('something went wrong!');
+        return res.status(401).send('something went wrong!');
     }   
 })
 export default router;

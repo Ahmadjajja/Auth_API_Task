@@ -4,12 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-// import cors from "cors"
+const cors_1 = __importDefault(require("cors")); // here is one error in cors
+// const cors = require('cors')
 const dotenv_1 = __importDefault(require("dotenv"));
 const user_1 = __importDefault(require("./route/user"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
+app.use((0, cors_1.default)());
+app.options("*", (0, cors_1.default)());
 app.use(express_1.default.json());
 //Route
 app.use("/api/v1/user", user_1.default);
@@ -17,6 +20,12 @@ app.use("/api/v1/user", user_1.default);
 app.get("/", (req, res) => {
     res.send("Ahmad Responding from HTTP Server");
 });
+// Add a list of allowed origins.
+// If you have more origins you would like to add, you can add them to the array below.
+const allowedOrigins = [`http://localhost:${port}`];
+const options = {
+    origin: allowedOrigins
+};
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
 });

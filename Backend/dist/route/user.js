@@ -31,7 +31,7 @@ router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         return res.status(400).send('password is wrong!');
     }
     else {
-        return res.status(400).send('something went wrong!');
+        return res.status(401).send('something went wrong!');
     }
 }));
 exports.default = router;
