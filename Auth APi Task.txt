@@ -2,12 +2,14 @@ Server:
 
 email: ahmadjajja86@gmail.com
 password: Ahmad786
+
+
 Server run command: npm run dev
 
 client: 
 
-running commands:
+client run commands: npm start
 	
-	npm start
+	
 
 
