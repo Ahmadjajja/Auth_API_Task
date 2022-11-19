@@ -11,8 +11,10 @@ const User:User = {
     password: 'Ahmad786'
 }
 
+
+
 router.post('/login', async (req: Request, res: Response) => {
-    console.log(req.body)
+    console.log(req.body);
 
     const user = (req.body.email == User.email) && User;
 
